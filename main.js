@@ -64,7 +64,7 @@ function isReasultWeather(values, status) {
   const wind_kph = values.current.wind_kph;
   const temperature = values.current.temp_c;
 
-
+  console.log(values)
   const isDate = new Date();
   const Hours = isDate.getHours();
   const Today =
@@ -106,7 +106,7 @@ function isReasultWeather(values, status) {
   })
   $(".messageError-content").hide();
 
-  if (Hours >= 19 || Hours <= 5) {
+  if (Hours >= 19 && Hours <= 5) {
     $(".display-data").html(function () {
       $(".display-data").css({
         "background-image": "url(images/pexels-miriam-espacio-365633.jpg)",
@@ -116,7 +116,7 @@ function isReasultWeather(values, status) {
 
 
   } else {
-    if (temperature < 34 && humidity < 90 && humidity > 30) {
+    if (feelslike_c < 34) {
       $(".display-data").html(function () {
         $(".display-data").css({
           "background-image": "url(images/04099_dataibaysunset_1920x1080.jpg)",
@@ -125,7 +125,7 @@ function isReasultWeather(values, status) {
       });
     }
 
-    if (temperature >= 34) {
+    if (feelslike_c >= 34) {
       $(".display-data").html(function () {
         $(".display-data").css({
           "background-image": "url(images/chup-anh-khi-troi-nang-gat.jpg)",
@@ -135,10 +135,10 @@ function isReasultWeather(values, status) {
       });
     }
 
-    if (temperature < 34 && humidity > 90) {
+    if (feelslike_c < 34 && humidity > 70) {
       $(".display-data").html(function () {
         $(".display-data").css({
-          "background-image": "url(anh-bau-troi-am-u-dep-nhat_022454740.jpg)",
+          "background-image": "url(images/anh-bau-troi-u-am-buon-tuyet-vong_022429207.jpg)",
         });
         $(".icon-weather").attr("src", "images/cloudy.png");
       });
